@@ -1,9 +1,23 @@
 import React from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './pages/Home'
+import SinIn from './pages/SinIn'
+import SinOut from './pages/SinOut'
+import Profile from './pages/Profile'
+import About from './pages/About'
+
+
 
 export default function App() {
   return (
-    <div>
-      <h1 className='text-red-500'>app</h1>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home></Home>}></Route>
+      <Route path='/sinin' element={<SinIn></SinIn>}></Route>
+      <Route path='/sinout' element={<SinOut></SinOut>}></Route>
+      <Route path='/profile' element={<Profile></Profile>}></Route>
+      <Route path='/about' element={<About></About>}></Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
