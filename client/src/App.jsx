@@ -6,6 +6,7 @@ import SinOut from './pages/SinOut'
 import Profile from './pages/Profile'
 import About from './pages/About'
 import Header from './components/Header'
+import PrivateRoute from './components/PrivateRoute'
 
 
 
@@ -17,8 +18,11 @@ export default function App() {
       <Route path='/' element={<Home></Home>}></Route>
       <Route path='/sinin' element={<SinIn></SinIn>}></Route>
       <Route path='/sinout' element={<SinOut></SinOut>}></Route>
-      <Route path='/profile' element={<Profile></Profile>}></Route>
       <Route path='/about' element={<About></About>}></Route>
+      <Route element={<PrivateRoute></PrivateRoute>}>
+      <Route path='/profile' element={<Profile></Profile>}></Route>
+      </Route>
+      
     </Routes>
     </BrowserRouter>
   )
