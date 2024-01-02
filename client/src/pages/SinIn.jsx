@@ -2,6 +2,7 @@ import  {React, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { signInFailure, signInSuccess, signInStart } from '../redux/user/UserSlice';
+import OAuth from '../components/OAuth';
 
 export default function SinIn() {
   const [formData, setformData]=useState({});
@@ -61,6 +62,7 @@ export default function SinIn() {
         <input type='email' placeholder='email' className='border p-3 rounded-lg' id='email' onChange={handleChange}></input>
         <input type='password' placeholder='password' className='border p-3 rounded-lg' id='password' onChange={handleChange}></input>
         <button className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-65'>{loading ?'Loading...':'sign in'}</button>
+        <OAuth></OAuth>
       </form>
       <div className='flex gap-4 mt-3'>
         Don't Have an Account
