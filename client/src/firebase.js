@@ -10,7 +10,7 @@ const firebaseConfig = {
   projectId: "mern-estate-89e02",
   storageBucket: "mern-estate-89e02.appspot.com",
   messagingSenderId: "679850587108",
-  appId: "1:679850587108:web:2e2a318b17590332c00df1"
+  appId: "1:679850587108:web:2e2a318b17590332c00df1",
 };
 
 // Initialize Firebase
