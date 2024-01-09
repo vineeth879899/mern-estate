@@ -16,8 +16,8 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
 
-  // console.log(fileperc);
-  // console.log(file);
+  console.log(fileperc);
+  console.log(file);
   console.log(formData);
   console.log(fileperc);
   console.log(fileUploadError);
