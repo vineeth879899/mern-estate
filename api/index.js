@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from './routers/user.router.js'
 import authRouter from './routers/auth.route.js'
+import cookieParser from "cookie-parser";
 dotenv.config();
 
 mongoose
@@ -16,6 +17,8 @@ mongoose
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser())
+
 const port = process.env.port || 5000;
 app.listen(port, () => {
   console.log(`node server is stared at port: ${port}`);

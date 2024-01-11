@@ -16,8 +16,8 @@ export default function Profile() {
   const [fileUploadError, setFileUploadError] = useState(false);
   const [formData, setFormData] = useState({});
 
-  console.log(fileperc);
-  console.log(file);
+  // console.log(fileperc);
+  // console.log(file);
   console.log(formData);
   console.log(fileperc);
   console.log(fileUploadError);
@@ -38,7 +38,7 @@ export default function Profile() {
     const storage = getStorage(app);
     const fileName = new Date().getTime() + file.name;
     const storageRef = ref(storage, fileName);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    const uploadTask = uploadBytesResumable(storageRef,file);
 
     uploadTask.on(
       "state_changed",
