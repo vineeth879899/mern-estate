@@ -1,15 +1,15 @@
-import express from "express";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 import userRouter from './routers/user.router.js'
 import authRouter from './routers/auth.route.js'
-import cookieParser from "cookie-parser";
+import cookieParser from 'cookie-parser';
 dotenv.config();
 
 mongoose
   .connect(process.env.MONGO)
   .then(() => {
-    console.log("mongodb is connected!!");
+    console.log('mongodb is connected!!');
   })
   .catch((err) => {
     console.log(err);
@@ -17,7 +17,7 @@ mongoose
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 
 const port = process.env.port || 5000;
 app.listen(port, () => {
