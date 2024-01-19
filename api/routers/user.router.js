@@ -8,4 +8,5 @@ router.get('/test',test)
 router.post('/update/:id',veriftToken, updateUser)
 router.delete('/delete/:id',veriftToken, deleteUser)
 router.get('/listings/:id', veriftToken, getUserListings)
+
 export default router;
