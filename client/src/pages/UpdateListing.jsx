@@ -250,7 +250,7 @@ import {
                   type='number'
                   id='regularPrice'
                   min={1000}
-                  max={10000}
+                  max={100000}
                   required
                   className='p-3 border border-gray-700 rounded-lg '
                   onChange={handleChange} value={formData.regularPrice}
@@ -266,7 +266,7 @@ import {
                  type='number'
                  id='discountPrice'
                  min={0}
-                 max={10000}
+                 max={100000}
                  required
                  className='p-3 border border-gray-700 rounded-lg '
                 onChange={handleChange} value={formData.discountPrice}
@@ -329,7 +329,7 @@ import {
                 </div>
               ))}
             <button disabled={loading || uploading} className='p-3 bg-gray-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-70'>
-              {loading ? 'Creating...' : 'Update Listing'}
+              {loading ? 'Updating...' : 'Update Listing'}
             </button>
             {error && <p className='text-red-700'>{error}</p>}
           </div>
