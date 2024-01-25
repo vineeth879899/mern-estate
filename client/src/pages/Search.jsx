@@ -6,7 +6,7 @@ export default function Search () {
     const navigate = useNavigate();
     const [loading , setLoading] = useState(false);
     const [listings, setListing] = useState([]);
-    console.log(listings);
+    const [showMore, setShowMore] = useState(false);
 
     const [sidebarData, setSidebarData] = useState({
         SearchTerm: '',
@@ -48,9 +48,15 @@ export default function Search () {
 
         const fetchListings = async () => {
            setLoading(true);
+           setShowMore(false);
            const searchQuery = urlParams.toString();
            const res = await fetch(`/api/listing/get?${searchQuery}`);
            const data = await res.json();
+           if(data.length > 8){
+            setShowMore(true);
+           }else{
+            setShowMore(false);
+           }
            setListing(data);
            setLoading(false);
         };
@@ -89,6 +95,20 @@ export default function Search () {
         navigate(`/search?${searchQuery}`);
     }
 
+    const onShowMoreClick =async () => {
+        const numberOfListings = listings.length;
+        const startIndex = numberOfListings;
+        const urlParams = new URLSearchParams(location.search);
+        urlParams.set('startIndex', startIndex);
+        const searchQuery = urlParams.toString();
+        const res = await fetch(`/api/listing/get?${searchQuery}`);
+        const data =await res.json();
+        if(data.length < 9 ){
+            setShowMore(false);
+
+        }
+        setListing([...listings, ...data]);
+    }
 
   return (
     <div className='flex flex-col md:flex-row'>
@@ -152,6 +172,13 @@ export default function Search () {
                     <p className='text-xl text-slate-700 text-center w-full'>Loading...</p>
                 )}
                 {!loading && listings && listings.map((listing) => <ListingItem key={listing._id} listing={listing}></ListingItem>)}
+                {showMore && (
+                    <button onClick={onShowMoreClick}
+                    className='text-green-700 hover:underline p-7 text-center w-full'
+                    >
+                     Show more
+                    </button>
+                )}
             </div>
         </div>
     </div>
